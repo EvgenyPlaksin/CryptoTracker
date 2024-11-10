@@ -1,4 +1,4 @@
-package com.lnight.cryptotracker.util
+package com.lnight.cryptotracker.core.domain.util
 
 typealias DomainError = Error
 
