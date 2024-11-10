@@ -1,4 +1,4 @@
-package com.lnight.cryptotracker.util
+package com.lnight.cryptotracker.core.presentation.util
 
 import com.lnight.cryptotracker.R
 
