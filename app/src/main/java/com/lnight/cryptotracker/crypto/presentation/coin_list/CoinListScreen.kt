@@ -18,11 +18,11 @@ import androidx.compose.ui.unit.dp
 import com.lnight.cryptotracker.crypto.presentation.coin_list.components.CoinListItem
 import com.lnight.cryptotracker.crypto.presentation.coin_list.components.previewCoin
 import com.lnight.cryptotracker.ui.theme.CryptoTrackerTheme
-import kotlinx.coroutines.flow.emptyFlow
 
 @Composable
 fun CoinListScreen(
     state: CoinListState,
+    onActon: (CoinListAction) -> Unit,
     modifier: Modifier = Modifier
 ) {
     if(state.isLoading) {
@@ -42,7 +42,7 @@ fun CoinListScreen(
             items(state.coins) { coinUi ->
                 CoinListItem(
                     coinUi = coinUi,
-                    onClick = { /*TODO*/ },
+                    onClick = { onActon(CoinListAction.OnCoinClick(coinUi)) },
                     modifier = Modifier.fillMaxWidth()
                 )
                 HorizontalDivider()
@@ -61,7 +61,8 @@ private fun CoinListScreenPreview() {
                 }
             ),
             modifier = Modifier
-                .background(MaterialTheme.colorScheme.background)
+                .background(MaterialTheme.colorScheme.background),
+            onActon = {}
         )
     }
 }
